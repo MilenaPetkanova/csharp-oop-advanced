@@ -4,15 +4,15 @@ namespace Logger.Models.Factories
 {
     internal class FileAppender : IAppender
     {
-        private ILogFile logFile;
-
         public FileAppender(ILayout layout, ErrorLevel errorLevel, ILogFile logFile)
         {
             this.Layout = layout;
             this.Level = errorLevel;
-            this.logFile = logFile;
+            this.LogFile = logFile;
             this.MessagesAppended = 0;
         }
+
+        public ILogFile LogFile { get; }
 
         public ILayout Layout { get; }
 
@@ -23,7 +23,7 @@ namespace Logger.Models.Factories
         public void Append(IError error)
         {
             string formattedError = this.Layout.FormatError(error);
-            this.logFile.WriteToFile(formattedError);
+            this.LogFile.WriteToFile(formattedError);
             this.MessagesAppended++;
         }
 
@@ -35,7 +35,7 @@ namespace Logger.Models.Factories
 
             string result = $"Appender type: {appenderType}, Layout type: {layoutType}, " +
                 $"Report level: {reportLevel}, Messages appended: {this.MessagesAppended}, " +
-                $"File size: {this.logFile.Size}";
+                $"File size: {this.LogFile.Size}";
 
             return result;
         }
