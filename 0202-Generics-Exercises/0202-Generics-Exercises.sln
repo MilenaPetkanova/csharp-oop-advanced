@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0204-Generic-Swap-Method-In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0205-Generic-Count-Method-Strings", "0205-Generic-Count-Method-Strings\0205-Generic-Count-Method-Strings.csproj", "{8D6CEC9F-C6D5-4CBE-896D-D49416E98EC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0206-Generic-Count-Method-Doubles", "0206-Generic-Count-Method-Doubles\0206-Generic-Count-Method-Doubles.csproj", "{07100A66-2A33-469C-BA1C-73B899D99752}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0207-Custom-List", "0207-Custom-List\0207-Custom-List.csproj", "{48A61F54-3257-409B-8DC9-3F72FBE97A67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{8D6CEC9F-C6D5-4CBE-896D-D49416E98EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D6CEC9F-C6D5-4CBE-896D-D49416E98EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D6CEC9F-C6D5-4CBE-896D-D49416E98EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07100A66-2A33-469C-BA1C-73B899D99752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07100A66-2A33-469C-BA1C-73B899D99752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07100A66-2A33-469C-BA1C-73B899D99752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07100A66-2A33-469C-BA1C-73B899D99752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A61F54-3257-409B-8DC9-3F72FBE97A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A61F54-3257-409B-8DC9-3F72FBE97A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A61F54-3257-409B-8DC9-3F72FBE97A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A61F54-3257-409B-8DC9-3F72FBE97A67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,16 +5,17 @@ class Startup
 {
     static void Main()
     {
-        var elements = new List<string>();
+        var elements = new List<double>();
 
         var elementsCount = int.Parse(Console.ReadLine());
         for (int i = 0; i < elementsCount; i++)
         {
-            elements.Add(Console.ReadLine());
+            var element = double.Parse(Console.ReadLine());
+            elements.Add(element);
         }
 
-        var valueToCompareWith = Console.ReadLine();
-        
+        var valueToCompareWith = double.Parse(Console.ReadLine());
+
         var result = CountGreaterThanValue(elements, valueToCompareWith);
 
         Console.WriteLine(result);
