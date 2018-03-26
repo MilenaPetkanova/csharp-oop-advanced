@@ -84,4 +84,11 @@ public class CustomList<T> : ICustomList<T>
 
         return sb.ToString().TrimEnd();
     }
+
+    public void Sort()
+    {
+        this.customList = this.customList
+            .OrderByDescending(x => x)
+            .ToList();
+    }
 }

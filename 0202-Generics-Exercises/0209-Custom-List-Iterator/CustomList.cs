@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class CustomList<T> : ICustomList<T>
+public class CustomList<T> : ICustomList<T>, IEnumerable<T>
     where T : IComparable<T>
 {
     private IList<T> customList;
@@ -77,11 +78,28 @@ public class CustomList<T> : ICustomList<T>
     {
         var sb = new StringBuilder();
 
-        for (int i = 0; i < this.customList.Count; i++)
+        foreach (var item in this.customList)
         {
-            sb.AppendLine(this.customList[i].ToString());
+            sb.AppendLine(item.ToString());
         }
 
         return sb.ToString().TrimEnd();
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return this.customList.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return this.customList.GetEnumerator();
+    }
+
+    public void Sort()
+    {
+        this.customList = this.customList
+            .OrderBy(x => x)
+            .ToList();
     }
 }
