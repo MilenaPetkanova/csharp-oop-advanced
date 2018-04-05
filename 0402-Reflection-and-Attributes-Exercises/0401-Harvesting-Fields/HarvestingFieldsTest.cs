@@ -3,67 +3,52 @@
     using System;
     using System.Linq;
     using System.Reflection;
+    using System.Text;
 
     public class HarvestingFieldsTest
     {
         public static void Main()
         {
-            var command = Console.ReadLine();
-            while (!command.Equals("HARVEST"))
+            var input = string.Empty;
+            var allFields = typeof(HarvestingFields).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+            while ((input = Console.ReadLine()) != "HARVEST")
             {
-                FieldInfo[] fields;
-
-                switch (command)
-                {
-                    case "private":
-                        fields = typeof(HarvestingFields).GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
-                        foreach (var field in fields)
-                        {
-                            if (!field.IsFamily)
-                            {
-                                PrintOutputLine(command, field);
-                            }
-                        }
-                        break;
-                    case "protected":
-                        fields = typeof(HarvestingFields).GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
-                        foreach (var field in fields)
-                        {
-                            if (field.IsFamily)
-                            {
-                                PrintOutputLine(command, field);
-                            }
-                        }
-                        break;
-                    case "public":
-                        fields = typeof(HarvestingFields).GetFields(BindingFlags.Instance | BindingFlags.Public);
-                        foreach (var field in fields)
-                        {
-                            PrintOutputLine(command, field);
-                        }
-                        break;
-                    case "all":
-                        fields = typeof(HarvestingFields).GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                        foreach (var field in fields)
-                        {
-                            var accessModifier = field.Attributes.ToString().ToLower();
-                            if (accessModifier.Equals("family"))
-                            {
-                                accessModifier = "protected";
-                            }
-                            PrintOutputLine(accessModifier, field);
-                        }
-                        break;
-                }
-
-                command = Console.ReadLine();
+                Console.WriteLine(PrintAllFields(input, allFields));
+                input = Console.ReadLine();
             }
         }
-
-        private static void PrintOutputLine(string accessModifier, FieldInfo field)
+        public static string PrintAllFields(string input, FieldInfo[] allFields)
         {
-            var fieldType = field.FieldType.ToString().Split('.').Last();
-            Console.WriteLine($"{accessModifier} {fieldType} {field.Name}");
+            var builder = new StringBuilder();
+            var fieldClass = typeof(HarvestingFields);
+
+            if (input == "public")
+            {
+                var publicFields = allFields.Where(f => f.IsPublic);
+                foreach (var item in allFields)
+                {
+
+                    builder.AppendLine($"public {item.FieldType.Name} {item.Name}");
+                }
+
+            }
+            if (input == "private")
+            {
+                var privateFields = allFields.Where(f => f.IsPrivate);
+                foreach (var item in privateFields)
+                {
+                    builder.AppendLine($"private {item.FieldType.Name} {item.Name}");
+                }
+            }
+            if (input == "protected")
+            {
+                var protectedFields = allFields.Where(f => f.IsFamily);
+                foreach (var item in protectedFields)
+                {
+                    builder.AppendLine($"protected {item.FieldType.Name} {item.Name}");
+                }
+            }
+            return builder.ToString().TrimEnd();
         }
     }
 }
