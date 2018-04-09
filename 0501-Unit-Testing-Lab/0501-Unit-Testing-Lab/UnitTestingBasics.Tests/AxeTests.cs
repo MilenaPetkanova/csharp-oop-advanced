@@ -44,9 +44,6 @@ namespace UnitTestingBasics.Tests
             this.dummy = new Dummy(dummyHealth, dummyExperience);
             this.axe = new Axe(axeNotAttack, axeBroken);
 
-            // Act
-            this.axe.Attack(this.dummy);
-
             // Assert
             Assert.That(() => this.axe.Attack(this.dummy),
                 Throws.InvalidOperationException
