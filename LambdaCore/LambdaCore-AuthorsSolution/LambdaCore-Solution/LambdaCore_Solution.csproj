@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAF1712C-8E6C-4EE0-AE44-92DBB987B26A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LambdaCore_Solution</RootNamespace>
+    <AssemblyName>LambdaCore_Solution</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collection\LStack.cs" />
+    <Compile Include="Commands\AttachFragmentCommand.cs" />
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\CreateCoreCommand.cs" />
+    <Compile Include="Commands\DetachFragmentCommand.cs" />
+    <Compile Include="Commands\RemoveCoreCommand.cs" />
+    <Compile Include="Commands\SelectCommand.cs" />
+    <Compile Include="Commands\StatusCommand.cs" />
+    <Compile Include="Core\CommandDispatcher.cs" />
+    <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\NuclearPowerPlant.cs" />
+    <Compile Include="Enums\CoreStatus.cs" />
+    <Compile Include="Enums\CoreType.cs" />
+    <Compile Include="Enums\FragmentType.cs" />
+    <Compile Include="Exceptions\LambdaCoreBaseException.cs" />
+    <Compile Include="Exceptions\NoSelectedCoreException.cs" />
+    <Compile Include="Exceptions\UnexistentCoreException.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\ICommandDispatcher.cs" />
+    <Compile Include="Interfaces\ICore.cs" />
+    <Compile Include="Interfaces\IEngine.cs" />
+    <Compile Include="Interfaces\IFragment.cs" />
+    <Compile Include="Interfaces\IInputReader.cs" />
+    <Compile Include="Interfaces\IOutputWriter.cs" />
+    <Compile Include="Interfaces\IPowerPlant.cs" />
+    <Compile Include="IO\ConsoleReader.cs" />
+    <Compile Include="IO\ConsoleWriter.cs" />
+    <Compile Include="Models\Cores\BaseCore.cs" />
+    <Compile Include="Models\Cores\ParaCore.cs" />
+    <Compile Include="Models\Cores\SystemCore.cs" />
+    <Compile Include="Models\Fragments\BaseFragment.cs" />
+    <Compile Include="Models\Fragments\CoolingFragment.cs" />
+    <Compile Include="Models\Fragments\NuclearFragment.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\Messages.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
