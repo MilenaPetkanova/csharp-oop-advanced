@@ -1,0 +1,21 @@
+Goal: Anyone should be able to usnderstand what is happinging in the data table.
+
+Data provider:
+https://docs.google.com/spreadsheets/d/1bUYK4n46HOIBZ6fY738VAZ0A56J_DbO4Gvis21fC1K8/edit#gid=1991274776
+
+
+The Wild Animals Volunteers is a simple Console Application for data collecting and data providing to the Wild Animals Org. coordinators. 
+
+Example inputs
+
+AddVolunteer -> SofiaTransporter -> SomeName SomeSurname -> SomePhone -> SomeStatus -> SomeFacebook -> SomeNeighborhood -> SomeTransportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+NotIExecutableType_Expect
+AddVolunteer -> SofiaTransporter -> SomeName SomeSurname -> SomePhone -> SomeStatus -> SomeFacebook -> SomeNeighborhood -> SomeTransportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+AddVolunteer -> SofiaTransporters -> Mena Petk -> 4143 -> stat -> fb -> area -> transp -> time -> add -> anoth
+
+SomeInvalidCommand -> SomeName SomeSurname -> SomePhone -> SomeStatus -> SomeFacebook -> SomeMeighborhood -> SomeTRansportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+DeleteVolunteer -> SofiaTransporter -> SomeName SomeSurname
+
