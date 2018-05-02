@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0601-Event-Inplementation", "0601-Event-Inplementation\0601-Event-Inplementation.csproj", "{59D9315E-B05C-48D9-9672-058AFB68CFF4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0602-Kings-Gambit", "0602-Kings-Gambit\0602-Kings-Gambit.csproj", "{8482D18A-0076-4460-9B7B-B74F31DC0A4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0603-Dependency-Inversion", "0603-Dependency-Inversion\0603-Dependency-Inversion.csproj", "{F8B1C9F9-9086-4F04-9734-634ED05DEF8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0603-Dependency-Inversion.Tests", "0603-Dependency-Inversion.Tests\0603-Dependency-Inversion.Tests.csproj", "{F228977F-3BFB-46CC-A69B-4859BE49F3E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0601-Event-Implementation", "0601-Event-Implementation\0601-Event-Implementation.csproj", "{87CF87FE-0F83-4E72-99EA-5A29071F40BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0601-Implement-Events.Tests", "0601-Implement-Events.Tests\0601-Implement-Events.Tests.csproj", "{4D0168CC-19D8-466A-8DED-6DAA84087CE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0605-Kings-Gambit-Extended", "0605-Kings-Gambit-Extended\0605-Kings-Gambit-Extended.csproj", "{6D860FBF-F69A-4DB3-B686-7EE2C910C3A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59D9315E-B05C-48D9-9672-058AFB68CFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59D9315E-B05C-48D9-9672-058AFB68CFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59D9315E-B05C-48D9-9672-058AFB68CFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59D9315E-B05C-48D9-9672-058AFB68CFF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8482D18A-0076-4460-9B7B-B74F31DC0A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8482D18A-0076-4460-9B7B-B74F31DC0A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8482D18A-0076-4460-9B7B-B74F31DC0A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +29,22 @@ Global
 		{F8B1C9F9-9086-4F04-9734-634ED05DEF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B1C9F9-9086-4F04-9734-634ED05DEF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B1C9F9-9086-4F04-9734-634ED05DEF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F228977F-3BFB-46CC-A69B-4859BE49F3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F228977F-3BFB-46CC-A69B-4859BE49F3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F228977F-3BFB-46CC-A69B-4859BE49F3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F228977F-3BFB-46CC-A69B-4859BE49F3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CF87FE-0F83-4E72-99EA-5A29071F40BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CF87FE-0F83-4E72-99EA-5A29071F40BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CF87FE-0F83-4E72-99EA-5A29071F40BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CF87FE-0F83-4E72-99EA-5A29071F40BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D0168CC-19D8-466A-8DED-6DAA84087CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0168CC-19D8-466A-8DED-6DAA84087CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0168CC-19D8-466A-8DED-6DAA84087CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0168CC-19D8-466A-8DED-6DAA84087CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D860FBF-F69A-4DB3-B686-7EE2C910C3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D860FBF-F69A-4DB3-B686-7EE2C910C3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D860FBF-F69A-4DB3-B686-7EE2C910C3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D860FBF-F69A-4DB3-B686-7EE2C910C3A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
