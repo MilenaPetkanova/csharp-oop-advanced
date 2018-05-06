@@ -11,7 +11,7 @@
 		public IAirplane CreateAirplane(string type)
 		{
             var assembly = Assembly.GetCallingAssembly();
-            Type aiplaneType = assembly.GetTypes().FirstOrDefault(x => x.Name == type);
+            Type aiplaneType = assembly.GetTypes().FirstOrDefault(x => x.Name.Equals(type));
 
             if (aiplaneType == null)
             {

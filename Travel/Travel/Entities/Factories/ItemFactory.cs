@@ -11,8 +11,7 @@
 		public IItem CreateItem(string type)
 		{
             var assembly = Assembly.GetCallingAssembly();
-            var itemType = assembly.GetTypes()
-                .FirstOrDefault(x => x.Name.Equals(type));
+            var itemType = assembly.GetTypes().FirstOrDefault(x => x.Name.Equals(type));
 
             if (itemType == null)
             {

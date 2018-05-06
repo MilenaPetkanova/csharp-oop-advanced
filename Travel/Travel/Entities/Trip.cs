@@ -12,7 +12,6 @@
 			this.Source = source;
 			this.Destination = destination;
 			this.Airplane = airplane;
-
 			this.Id = GenerateId(source, destination);
 		}
 

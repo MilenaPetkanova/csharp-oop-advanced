@@ -54,7 +54,7 @@
 
             if (passenger == null)
             {
-                throw new INVA("No such passanger!");
+                throw new ArgumentException("No such passanger!");
             }
 
             return passenger;
