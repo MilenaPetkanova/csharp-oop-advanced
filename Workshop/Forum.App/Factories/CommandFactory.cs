@@ -43,9 +43,9 @@
                 throw new ArgumentException("Command not found!");
             }
 
-            if (!commandType.IsAssignableFrom(typeof(ICommand)))
+            if (!typeof(ICommand).IsAssignableFrom(commandType))
             {
-                throw new InvalidOperationException($"{commandType} is not a command!");
+                throw new InvalidOperationException($"{commandType.Name} is not a command");
             }
         }
     }

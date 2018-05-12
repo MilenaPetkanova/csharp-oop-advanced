@@ -2,10 +2,8 @@
 {
     using Forum.App.Contracts;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
 
     public class MenuFactory : IMenuFactory
     {
@@ -44,7 +42,7 @@
                 throw new ArgumentException("Menu not found!");
             }
 
-            if (!menuType.IsAssignableFrom(typeof(IMenu)))
+            if (!typeof(IMenu).IsAssignableFrom(menuType))
             {
                 throw new InvalidOperationException($"{menuType} is not a menu!");
             }

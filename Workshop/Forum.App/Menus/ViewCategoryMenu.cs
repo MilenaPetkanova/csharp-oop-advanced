@@ -30,7 +30,7 @@
 
         private int LastPage => this.posts.Length / 11;
 
-        private bool IsFirstPage => this.currentPage == 1;
+        private bool IsFirstPage => this.currentPage == 0;
 
         private bool IsLastPage => this.currentPage == this.LastPage;
 

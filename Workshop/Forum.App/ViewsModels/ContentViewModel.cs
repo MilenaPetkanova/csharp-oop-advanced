@@ -9,7 +9,7 @@
 
         public ContentViewModel(string content)
         {
-            this.Content = GetLines(content);
+            this.Content = this.GetLines(content);
         }
 
         public string[] Content { get; }
