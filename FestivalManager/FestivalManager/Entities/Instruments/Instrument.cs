@@ -1,8 +1,7 @@
-﻿using System;
-
-namespace FestivalManager.Entities.Instruments
+﻿namespace FestivalManager.Entities.Instruments
 {
     using Contracts;
+    using System;
 
     public abstract class Instrument : IInstrument
     {
@@ -11,10 +10,9 @@ namespace FestivalManager.Entities.Instruments
 
         private double wear;
 
-        protected Instrument(int repairAmount)
+        protected Instrument()
         {
             this.Wear = MaxWear;
-            this.RepairAmount = repairAmount;
         }
 
         public double Wear
@@ -25,29 +23,17 @@ namespace FestivalManager.Entities.Instruments
             }
             private set
             {
-                if (value < MinWear)
-                {
-                    this.wear = MinWear;
-                }
-                else if (value > MaxWear)
-                {
-                    this.wear = MaxWear;
-                }
-                else
-                {
-                    this.wear = value;
-                }
-
+                this.wear = Math.Max(Math.Min(0, value), 100);
             }
         }
 
-        protected int RepairAmount { get; }
+        protected abstract int RepairAmount { get; }
 
         public void Repair() => this.Wear += this.RepairAmount;
 
         public void WearDown() => this.Wear -= this.RepairAmount;
 
-        public bool IsBroken => this.Wear <= 0;
+        public bool IsBroken => this.Wear <= MinWear;
 
         public override string ToString()
         {

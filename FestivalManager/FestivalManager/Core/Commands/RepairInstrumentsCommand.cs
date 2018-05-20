@@ -4,17 +4,14 @@
 
     public class RepairInstrumentsCommand : BaseCommand
     {
-        private IFestivalController festivalController;
-
         public RepairInstrumentsCommand(string[] args, IFestivalController festivalController)
-            : base(args)
+            : base(args, festivalController)
         {
-            this.festivalController = festivalController;
         }
 
         public override string Execute()
         {
-            return this.festivalController.RepairInstruments(base.Arguments);
+            return base.FestivalController.RepairInstruments(base.Arguments);
         }
     }
 }

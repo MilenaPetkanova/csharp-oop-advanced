@@ -12,7 +12,8 @@
     public class FestivalController : IFestivalController
     {
         private const string TimeFormat = "mm\\:ss";
-        private const string AnotherTimeFormat = "{0:00}:{1:00}";
+        private const string TimeFormatLong = "{0:00}:{1:00}";
+
         private const string RegisteredSetMessage = "Registered {0} set";
         private const string RegisteredPerformerMessage = "Registered performer {0}";
         private const string RegisteredSongMessage = "Registered song {0} ({1:00}:{2:00})";
@@ -22,10 +23,11 @@
         private const string AddedSongToSetMessage = "Added {0} ({1:00}:{2:00}) to {3}";
 
         private readonly IStage stage;
+
         private IInstrumentFactory instrumentFactory;
         private IPerformerFactory performerFactory;
-        private ISetFactory setFactory;
         private ISongFactory songFactory;
+        private ISetFactory setFactory;
 
         public FestivalController(IStage stage)
         {
@@ -43,11 +45,11 @@
             var totalFestivalLength = new TimeSpan(this.stage.Sets.Sum(s => s.ActualDuration.Ticks));
 
             sb.AppendLine($"Festival length: " +
-                $"{string.Format(AnotherTimeFormat, totalFestivalLength.TotalMinutes, totalFestivalLength.Seconds)}");
+                $"{string.Format(TimeFormatLong, totalFestivalLength.TotalMinutes, totalFestivalLength.Seconds)}");
 
             foreach (var set in this.stage.Sets)
             {
-                sb.AppendLine($"--{set.Name} ({string.Format(Time, set.ActualDuration.TotalMinutes, set.ActualDuration.Seconds)}):");
+                sb.AppendLine($"--{set.Name} ({string.Format(RegisteredSetMessage, set.ActualDuration.TotalMinutes, set.ActualDuration.Seconds)}):");
 
                 var performersOrderedDescendingByAge = set.Performers.OrderByDescending(p => p.Age);
                 foreach (var performer in performersOrderedDescendingByAge)
@@ -81,9 +83,10 @@
             var type = args[1];
 
             var set = this.setFactory.CreateSet(name, type);
+
             this.stage.AddSet(set);
 
-            return string.Format(RegisteredSet, type);
+            return string.Format(RegisteredSetMessage, type);
         }
 
         public string SignUpPerformer(string[] args)
@@ -108,20 +111,19 @@
 
             this.stage.AddPerformer(performer);
 
-            return string.Format(RegisteredPerformer, performer.Name);
+            return string.Format(RegisteredPerformerMessage, performer.Name);
         }
 
         public string RegisterSong(string[] args)
         {
             var name = args[0];
-
-            var time = "00:" + args[1];
-            var duration = TimeSpan.Parse(time);
+            var duration = TimeSpan.ParseExact(args[1], TimeFormat, CultureInfo.InvariantCulture);
 
             var song = this.songFactory.CreateSong(name, duration);
+
             this.stage.AddSong(song);
 
-            return string.Format(RegisteredSong, song.Name, song.Duration.TotalMinutes, song.Duration.Seconds);
+            return string.Format(RegisteredSongMessage, song.Name, song.Duration.TotalMinutes, song.Duration.Seconds);
         }
 
         public string AddSongToSet(string[] args)
@@ -131,12 +133,12 @@
 
             if (!this.stage.HasSet(setName))
             {
-                throw new InvalidOperationException(InvalidSet);
+                throw new InvalidOperationException(InvalidSetMessage);
             }
 
             if (!this.stage.HasSong(songName))
             {
-                throw new InvalidOperationException(InvalidSong);
+                throw new InvalidOperationException(InvalidSongMessage);
             }
 
             var set = this.stage.GetSet(setName);
@@ -144,7 +146,7 @@
 
             set.AddSong(song);
 
-            return string.Format(AddedSongToSet, song.Name,
+            return string.Format(AddedSongToSetMessage, song.Name,
                 song.Duration.TotalMinutes, song.Duration.Seconds, set.Name);
         }
 
@@ -155,12 +157,12 @@
 
             if (!this.stage.HasPerformer(performerName))
             {
-                throw new InvalidOperationException(InvalidPerformer);
+                throw new InvalidOperationException(InvalidPerformerMessage);
             }
 
             if (!this.stage.HasSet(setName))
             {
-                throw new InvalidOperationException(InvalidSet);
+                throw new InvalidOperationException(InvalidSetMessage);
             }
 
             var set = this.stage.GetSet(setName);
@@ -178,12 +180,12 @@
 
             if (!this.stage.HasPerformer(performerName))
             {
-                throw new InvalidOperationException(InvalidPerformer);
+                throw new InvalidOperationException(InvalidPerformerMessage);
             }
 
             if (!this.stage.HasSet(setName))
             {
-                throw new InvalidOperationException(InvalidSet);
+                throw new InvalidOperationException(InvalidSetMessage);
             }
 
             AddPerformerToSet(args);

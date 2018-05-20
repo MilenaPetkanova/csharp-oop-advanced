@@ -4,17 +4,14 @@
 
     public class AddSongToSetCommand : BaseCommand
     {
-        private IFestivalController festivalController;
-
         public AddSongToSetCommand(string[] args, IFestivalController festivalController)
-            : base(args)
+            : base(args, festivalController)
         {
-            this.festivalController = festivalController;
         }
 
         public override string Execute()
         {
-            return this.festivalController.AddSongToSet(base.Arguments);
+            return base.FestivalController.AddSongToSet(base.Arguments);
         }
     }
 }

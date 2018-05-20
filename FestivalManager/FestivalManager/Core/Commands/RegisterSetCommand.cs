@@ -4,17 +4,14 @@
 
     public class RegisterSetCommand : BaseCommand
     {
-        private IFestivalController festivalController;
-
         public RegisterSetCommand(string[] args, IFestivalController festivalController) 
-            : base(args)
+            : base(args, festivalController)
         {
-            this.festivalController = festivalController;
         }
 
         public override string Execute()
         {
-            return this.festivalController.RegisterSet(base.Arguments);
+            return base.FestivalController.RegisterSet(base.Arguments);
         }
     }
 }

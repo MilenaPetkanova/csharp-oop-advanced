@@ -4,9 +4,6 @@
     {
         private const int DefaultRepairAmount = 80;
 
-        public Microphone()
-            : base(DefaultRepairAmount)
-        {
-        }
+        protected override int RepairAmount => DefaultRepairAmount;
     }
 }

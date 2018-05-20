@@ -4,9 +4,6 @@
     {
         private const int DefaultRepairAmount = 60;
 
-        public Guitar()
-            : base(DefaultRepairAmount)
-        {
-        }
+        protected override int RepairAmount => DefaultRepairAmount;
     }
 }

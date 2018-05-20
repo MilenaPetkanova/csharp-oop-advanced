@@ -4,17 +4,14 @@
 
     public class SignUpPerformerCommand : BaseCommand
     {
-        private IFestivalController festivalController;
-
         public SignUpPerformerCommand(string[] args, IFestivalController festivalController)
-            : base(args)
+            : base(args, festivalController)
         {
-            this.festivalController = festivalController;
         }
 
         public override string Execute()
         {
-            return this.festivalController.SignUpPerformer(base.Arguments);
+            return base.FestivalController.SignUpPerformer(base.Arguments);
         }
     }
 }

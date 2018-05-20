@@ -16,6 +16,7 @@
             IWriter writer = new LineWriter();
 
             IStage stage = new Stage();
+
             IFestivalController festivalController = new FestivalController(stage);
             ISetController setController = new SetController(stage);
 

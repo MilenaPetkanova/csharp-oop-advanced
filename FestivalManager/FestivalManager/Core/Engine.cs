@@ -54,13 +54,33 @@
 
         public string ProcessCommand(string input)
         {
-            var tokens = input.Split(" ".ToCharArray().First());
+            var tokens = input.Split(' ');
 
-            var command = this.commandFactory.CreateCommand(tokens, this.festivalController, this.setController);
+            var command = tokens.First();
+            var args = tokens.Skip(1).ToArray();
 
-            var result = command.Execute();
+            if (command == "LetsRock")
+            {
+                var setResult = this.setController.PerformSets();
+                return setResult;
+            }
 
-            return result;
+            var commandMethod = this.festivalController.GetType()
+                .GetMethods()
+                .FirstOrDefault(mi => mi.Name == command);
+
+            string output;
+
+            try
+            {
+                output = (string)commandMethod.Invoke(this.festivalController, new object[] { args });
+            }
+            catch (TargetInvocationException ex)
+            {
+                throw ex.InnerException;
+            }
+
+            return output;
         }
     }
 }

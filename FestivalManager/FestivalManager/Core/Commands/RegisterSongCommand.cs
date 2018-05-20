@@ -4,17 +4,14 @@
 
     public class RegisterSongCommand : BaseCommand
     {
-        private IFestivalController festivalController;
-
         public RegisterSongCommand(string[] args, IFestivalController festivalController)
-            : base(args)
+            : base(args, festivalController)
         {
-            this.festivalController = festivalController;
         }
 
         public override string Execute()
         {
-            return this.festivalController.RegisterSong(base.Arguments);
+            return base.FestivalController.RegisterSong(base.Arguments);
         }
     }
 }

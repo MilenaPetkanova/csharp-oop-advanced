@@ -55,15 +55,14 @@
 				return false;
 			}
 
-			var allPerformersHaveInstruments = this.Performers
-                .All(p => p.Instruments.Any());
+			bool allPerformersHaveInstruments = this.Performers.All(p => p.Instruments.Count > 0);
 
 			if (!allPerformersHaveInstruments)
 			{
 				return false;
 			}
 
-			var allPerformersHaveFunctioningInstruments = this.performers
+            bool allPerformersHaveFunctioningInstruments = this.performers
                 .All(p => p.Instruments.Any(i => !i.IsBroken));
 
 			if (!allPerformersHaveFunctioningInstruments)
@@ -86,6 +85,7 @@
 			}
 
 			var result = sb.ToString().Trim();
+
 			return result;
 		}
 	}

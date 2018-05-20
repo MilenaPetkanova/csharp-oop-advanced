@@ -17,55 +17,31 @@
             this.performers = new List<IPerformer>();
         }
 
+        // Sets
         public IReadOnlyCollection<ISet> Sets => this.sets;
 
+        public void AddSet(ISet set) => this.sets.Add(set);
+
+        public bool HasSet(string name) => this.sets.Any(s => s.Name.Equals(name));
+
+        public ISet GetSet(string name) => this.sets.First(s => s.Name.Equals(name));
+
+        // Songs 
         public IReadOnlyCollection<ISong> Songs => this.songs;
 
+        public void AddSong(ISong song) => this.songs.Add(song);
+
+        public bool HasSong(string name) => this.songs.Any(s => s.Name.Equals(name));
+
+        public ISong GetSong(string name) => this.songs.First(s => s.Name.Equals(name));
+
+        // Performers
         public IReadOnlyCollection<IPerformer> Performers => this.performers;
 
-        public void AddPerformer(IPerformer performer)
-        {
-            this.performers.Add(performer);
-        }
+        public void AddPerformer(IPerformer performer) => this.performers.Add(performer);
 
-        public void AddSet(ISet set)
-        {
-            this.sets.Add(set);
-        }
+        public bool HasPerformer(string name) => this.performers.Any(p => p.Name.Equals(name));
 
-        public void AddSong(ISong song)
-        {
-            this.songs.Add(song);
-        }
-
-        public IPerformer GetPerformer(string name)
-        {
-            return (IPerformer)this.performers.First(p => p.Name.Equals(name));
-        }
-
-        public ISet GetSet(string name)
-        {
-            return (ISet)this.sets.First(s => s.Name.Equals(name));
-        }
-
-        public ISong GetSong(string name)
-        {
-            return (ISong)this.songs.First(s => s.Name.Equals(name));
-        }
-
-        public bool HasPerformer(string name)
-        {
-            return this.performers.Any(p => p.Name.Equals(name));
-        }
-
-        public bool HasSet(string name)
-        {
-            return this.sets.Any(s => s.Name.Equals(name));
-        }
-
-        public bool HasSong(string name)
-        {
-            return this.songs.Any(s => s.Name.Equals(name));
-        }
+        public IPerformer GetPerformer(string name) => this.performers.First(p => p.Name.Equals(name));
     }
 }
