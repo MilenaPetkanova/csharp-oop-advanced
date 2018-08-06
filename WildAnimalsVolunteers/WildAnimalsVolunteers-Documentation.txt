@@ -1,0 +1,37 @@
+Wild Animals Volunteers Database
+Documentation /draft/
+
+
+Introduction:
+The Wild Animals Volunteers is a simple Console Application for data providing to the Wild Animals Org. coordinators. 
+
+Goal: 
+Anyone should be able to understand everything in this volunteers database. Also searching by some criteria should be easies than in the currently existing Excel sheets.
+
+Data provider:
+https://docs.google.com/spreadsheets/d/1bUYK4n46HOIBZ6fY738VAZ0A56J_DbO4Gvis21fC1K8/edit#gid=1991274776
+
+Requirements:
+- Add, delete and edit volunteers type category;
+- Add, delete and edit volunteer;
+- Search be name, by region, by keyword;
+
+Longterm features:
+- Simple and easy to work with user interface 
+
+
+How to run the code
+
+Example inputs:
+
+AddVolunteer -> SofiaTransporter -> SomeName SomeSurname -> SomePhone -> SomeFacebook -> SomeNeighborhood -> SomeTransportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+NotIExecutableType_Expect
+AddVolunteer -> SofiaTransporter -> SomeName SomeSurname -> SomePhone -> SomeStatus -> SomeFacebook -> SomeNeighborhood -> SomeTransportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+AddVolunteer -> SofiaTransporters -> Mena Petk -> 4143 -> stat -> fb -> area -> transp -> time -> add -> anoth
+
+SomeInvalidCommand -> SomeName SomeSurname -> SomePhone -> SomeStatus -> SomeFacebook -> SomeMeighborhood -> SomeTRansportType -> SomeTimeDisposal -> SomeAdditionalInfo -> SomeAnotherSkills
+
+DeleteVolunteer -> SofiaTransporter -> SomeName SomeSurname
+

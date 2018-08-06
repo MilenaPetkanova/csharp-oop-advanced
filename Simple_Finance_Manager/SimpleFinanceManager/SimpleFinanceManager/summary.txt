@@ -1,0 +1,68 @@
+
+Category GroceriesCategory with the name Groceries added.
+
+========================
+
+Successfully changed initial limit of Category Groceries, from 100 € to 300 €.
+
+========================
+
+Successfully added item Meat to category Groceries with price 50€.
+
+========================
+
+Successfully added item Potatoes to category Groceries with price 30€.
+
+========================
+
+Current Balance of Category Groceries is equal to 140 €.
+
+========================
+
+Desired Category does not exist.
+
+========================
+
+The sum of all items in Category Groceries is equal to 160 €.
+
+========================
+
+Desired Category does not exist.
+
+========================
+
+Category Meat does not exist and therefor you cannot remove this item.
+
+========================
+
+Category EntertainmentCategory with the name Entertainment added.
+
+========================
+
+Successfully changed initial limit of Category Entertainment, from 100 € to 30 €.
+
+========================
+
+Successfully added item MovieTickets to category Entertainment with price 28€.
+
+========================
+
+Item Price cannot exceed Limit. Your current balance is 2 €.
+
+========================
+
+Cannot change Limit to be 0 or less.
+
+========================
+
+Cannot add an item to a category that doesn't exist.
+
+========================
+
+Desired Category does not exist.
+
+========================
+
+Desired Category does not exist.
+
+========================

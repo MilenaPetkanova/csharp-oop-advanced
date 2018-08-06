@@ -7,7 +7,7 @@
     public class Engine : IRunnable
     {
         private const string EndCommand = "End";
-        private const string Deliminator = " -> ";
+        private const string Deliminator = " - ";
 
         private readonly IInputReader consoleReader;
         private readonly IOutputWriter consoleWriter;
@@ -59,7 +59,6 @@
             {
                 this.consoleWriter.WriteLine(e.Message);
             }
-
         }
     }
 }
